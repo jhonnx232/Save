@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAEP | Painel Principal</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <header class="main-header">
+        <h1>SAEP - Gestão de Almoxarifado</h1>
+        <div class="user-info">
+            <span id="userGreeting"></span>
+            <button id="logoutButton" class="btn-logout">Sair</button>
+        </div>
+    </header>
+
+    <main class="dashboard-container">
+        <h2>Painel de Ações</h2>
+        
+        <div class="action-grid">
+            <a href="cadastro_produto.html" class="action-card">
+                <i class="icon">📦</i>
+                <h3>Cadastro de Produto</h3>
+                <p>Gerenciar, adicionar, editar e excluir ferramentas e equipamentos.</p>
+            </a>
+
+            <a href="gestao_estoque.html" class="action-card">
+                <i class="icon">📊</i>
+                <h3>Gestão de Estoque</h3>
+                <p>Registrar entradas/saídas e monitorar o nível de estoque mínimo.</p>
+            </a>
+        </div>
+    </main>
+    
+    <script src="home.js"></script>
+</body>
+</html>

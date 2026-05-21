@@ -1,0 +1,231 @@
+/* --- Variáveis de Design --- */
+:root {
+    --primary: #198f09;     
+    --primary-light: #15b437;
+    --success: #28a745;
+    --danger: #dc3545;
+    --warning: #ffc107;
+    --gray-dark: #343a40;
+    --gray-light: #f8f9fa;
+    --border: #dee2e6;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --radius: 8px;
+    --transition: all 0.3s ease;
+}
+
+/* --- Reset e Base --- */
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    color: var(--gray-dark);
+    line-height: 1.6;
+}
+
+/* --- Layout --- */
+.container, .dashboard-container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 15px;
+}
+
+.card {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* --- Cabeçalho Moderno --- */
+.main-header {
+    background-color: var(--primary);
+    color: white;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.main-header h1 {
+    margin: 0;
+    font-size: 1.4rem;
+    letter-spacing: 0.5px;
+}
+
+/* --- Botões Refinados --- */
+.btn-primary, .btn-secondary, .btn-logout {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+}
+
+.btn-primary { background: var(--primary-light); color: white; }
+.btn-primary:hover { background: #0069d9; transform: translateY(-1px); }
+
+.btn-secondary { background: #6c757d; color: white; }
+.btn-secondary:hover { background: #5a6268; }
+
+.btn-logout { background: var(--danger); color: white; }
+.btn-logout:hover { background: #bd2130; }
+
+.btn-action {
+    background: white;
+    border: 1px solid var(--border);
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 4px;
+    transition: var(--transition);
+}
+.btn-action.edit { color: var(--success); border-color: var(--success); }
+.btn-action.delete { color: var(--danger); border-color: var(--danger); }
+.btn-action:hover { background: #f8f9fa; filter: brightness(0.95); }
+
+/* --- Formulários --- */
+.input-group {
+    margin-bottom: 1.2rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #444;
+}
+
+.input-group input, 
+.input-group textarea, 
+.input-group select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #edf0f2;
+    border-radius: var(--radius);
+    transition: border-color 0.2s;
+    font-size: 1rem;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary-light);
+}
+
+.input-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+/* --- Centralização do Login (Método Flexbox) --- */
+.login-page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary) 0%, #002d5a 100%);
+}
+
+.login-container {
+    background: white;
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* --- Tabelas Profissionais --- */
+.table-responsive { overflow-x: auto; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+th {
+    background-color: var(--gray-light);
+    color: #555;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+tr:hover { background-color: rgba(0,0,0,0.02); }
+
+/* --- Status e Badges --- */
+[class^="status-"] {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.status-ok { background: #d4edda; color: #155724; }
+.status-baixo { background: #fff3cd; color: #856404; }
+.status-esgotado { background: #f8d7da; color: #721c24; }
+
+/* --- Dashboard Grid --- */
+.action-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.action-card {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid var(--border);
+    transition: var(--transition);
+    text-align: center;
+}
+
+.action-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+    border-color: var(--primary-light);
+}
+
+.action-card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+    color: var(--primary-light);
+}
+
+/* --- Mensagens de Feedback --- */
+.mensagem {
+    padding: 1rem;
+    border-radius: 6px;
+    margin: 1rem 0;
+    font-weight: 500;
+}
+.mensagem.sucesso { background: #d4edda; color: #155724; border-left: 5px solid #28a745; }
+.mensagem.erro { background: #f8d7da; color: #721c24; border-left: 5px solid #dc3545; }

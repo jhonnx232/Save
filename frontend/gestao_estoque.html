@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAEP | Gestão de Estoque</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <h1><i class="fas fa-boxes-stacked"></i> SAEP - Gestão de Estoque</h1>
+            <nav>
+                <a href="home.html" class="btn-secondary"><i class="fas fa-arrow-left"></i> Voltar</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <div class="card-header">
+                <h3><i class="fas fa-plus-circle"></i> Registrar Movimentação</h3>
+            </div>
+            <form id="movimentacaoForm">
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label for="produtoSelect">Produto</label>
+                        <select id="produtoSelect" required>
+                            <option value="">Selecione um produto...</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="tipoMovimentacao">Tipo</label>
+                        <select id="tipoMovimentacao" required>
+                            <option value="ENTRADA">ENTRADA (+)</option>
+                            <option value="SAIDA">SAÍDA (-)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="quantidade">Quantidade</label>
+                        <input type="number" id="quantidade" required min="1" placeholder="0">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="dataMovimentacao">Data</label>
+                        <input type="date" id="dataMovimentacao" required>
+                    </div>
+                </div>
+
+                <div class="input-group full-width">
+                    <label for="observacao">Observação (Motivo)</label>
+                    <textarea id="observacao" rows="2" placeholder="Ex: Reposição de estoque mensal..."></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Confirmar Registro</button>
+                </div>
+                <div id="feedback" class="message-box"></div>
+            </form>
+        </section>
+
+        <section class="card list-section">
+            <div class="card-header">
+                <h3><i class="fas fa-list"></i> Níveis de Estoque (RF11)</h3>
+            </div>
+            <div class="table-container">
+                <table id="estoqueTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Produto</th>
+                            <th>Estoque Atual</th>
+                            <th>Estoque Mín.</th>
+                            <th>Status</th>
+                            <th>Unidade</th>
+                        </tr>
+                    </thead>
+                    <tbody id="estoqueTableBody">
+                        </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="gestao_estoque.js"></script>
+</body>
+</html>

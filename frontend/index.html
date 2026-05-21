@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAEP</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Acesso ao Sistema SAEP</h2>
+        <p>Gestão de Almoxarifado</p>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="login">Login:</label>
+                <input type="text" id="login" required autocomplete="username">
+            </div>
+            <div class="input-group">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" required autocomplete="current-password">
+            </div>
+            <button type="submit" class="btn-primary">Entrar</button>
+            <p id="mensagemErro" class="mensagem erro" style="display:none;"></p>
+    </div>
+    <script src="./login.js"></script>
+</body>
+</html>
