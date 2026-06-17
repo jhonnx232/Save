@@ -1,231 +1,289 @@
-/* --- Variáveis de Design --- */
+/* Variáveis de Cores (Azul e Branco) */
 :root {
-    --primary: #198f09;     
-    --primary-light: #15b437;
-    --success: #28a745;
-    --danger: #dc3545;
-    --warning: #ffc107;
-    --gray-dark: #343a40;
-    --gray-light: #f8f9fa;
-    --border: #dee2e6;
-    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    --radius: 8px;
-    --transition: all 0.3s ease;
+    --azul-principal: #0056b3;
+    --azul-escuro: #003d82;
+    --azul-claro: #e6f0fa;
+    --fundo: #f8f9fa;
+    --branco: #ffffff;
+    --texto: #333333;
+    --borda: #cccccc;
 }
 
-/* --- Reset e Base --- */
+/* Reset Básico */
 * {
     box-sizing: border-box;
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
+    background-color: var(--fundo);
+    color: var(--texto);
+    line-height: 1.5;
+    /* Removido o padding do body para o cabeçalho encostar no topo e laterais */
     margin: 0;
     padding: 0;
-    background-color: #f0f2f5;
-    color: var(--gray-dark);
-    line-height: 1.6;
 }
 
-/* --- Layout --- */
+/* Estrutura Principal e Espaçamento do Conteúdo */
 .container, .dashboard-container {
-    width: 95%;
     max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 15px;
+    margin: 0 auto;
+    padding: 20px; /* O espaçamento agora fica interno nas seções */
 }
 
-.card {
-    background: #ffffff;
-    padding: 2rem;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    margin-bottom: 2rem;
-    border: 1px solid rgba(0,0,0,0.05);
-}
-
-/* --- Cabeçalho Moderno --- */
+/* Cabeçalho Azul no Topo da Página */
 .main-header {
-    background-color: var(--primary);
-    color: white;
-    padding: 1rem 5%;
+    background-color: var(--azul-principal);
+    color: var(--branco);
+    padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+    width: 100%;
 }
 
 .main-header h1 {
-    margin: 0;
-    font-size: 1.4rem;
-    letter-spacing: 0.5px;
+    color: var(--branco);
+    font-size: 1.5rem;
 }
 
-/* --- Botões Refinados --- */
-.btn-primary, .btn-secondary, .btn-logout {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 6px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
-    text-decoration: none;
-    display: inline-flex;
+.main-header .user-info, .main-header span {
+    color: var(--branco);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
+    width: 100%;
+}
+
+/* Tela de Login */
+.login-container {
+    max-width: 400px;
+    margin: 80px auto;
+    background: var(--branco);
+    padding: 30px;
+    border: 1px solid var(--borda);
+    border-top: 5px solid var(--azul-principal);
+    border-radius: 6px; /* Tela de login sutilmente arredondada também */
+}
+
+.login-container h2 {
+    color: var(--azul-principal);
+    margin-bottom: 5px;
+}
+
+.login-container p {
+    margin-bottom: 20px;
     font-size: 0.9rem;
 }
 
-.btn-primary { background: var(--primary-light); color: white; }
-.btn-primary:hover { background: #0069d9; transform: translateY(-1px); }
-
-.btn-secondary { background: #6c757d; color: white; }
-.btn-secondary:hover { background: #5a6268; }
-
-.btn-logout { background: var(--danger); color: white; }
-.btn-logout:hover { background: #bd2130; }
-
-.btn-action {
-    background: white;
-    border: 1px solid var(--border);
-    padding: 6px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-left: 4px;
-    transition: var(--transition);
-}
-.btn-action.edit { color: var(--success); border-color: var(--success); }
-.btn-action.delete { color: var(--danger); border-color: var(--danger); }
-.btn-action:hover { background: #f8f9fa; filter: brightness(0.95); }
-
-/* --- Formulários --- */
-.input-group {
-    margin-bottom: 1.2rem;
+/* Cartões (Cards) */
+.card {
+    background: var(--branco);
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid var(--borda);
+    border-left: 4px solid var(--azul-principal);
 }
 
-.input-group label {
-    display: block;
-    margin-bottom: 6px;
-    font-weight: 600;
-    color: #444;
+.card-header h3, .card h3 {
+    color: var(--azul-principal);
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--borda);
+    padding-bottom: 5px;
 }
 
-.input-group input, 
-.input-group textarea, 
-.input-group select {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid #edf0f2;
-    border-radius: var(--radius);
-    transition: border-color 0.2s;
-    font-size: 1rem;
-}
-
-.input-group input:focus {
-    outline: none;
-    border-color: var(--primary-light);
-}
-
+/* Formulários e Inputs (Responsivos) */
 .input-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 15px;
 }
 
-/* --- Centralização do Login (Método Flexbox) --- */
-.login-page-wrapper {
-    min-height: 100vh;
+.input-group {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, var(--primary) 0%, #002d5a 100%);
+    flex-direction: column;
 }
 
-.login-container {
-    background: white;
-    padding: 3rem 2rem;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    width: 100%;
-    max-width: 400px;
+.full-width {
+    grid-column: 1 / -1;
 }
 
-/* --- Tabelas Profissionais --- */
-.table-responsive { overflow-x: auto; }
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-}
-
-th {
-    background-color: var(--gray-light);
-    color: #555;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.75rem;
-    letter-spacing: 1px;
-}
-
-th, td {
-    padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid var(--border);
-}
-
-tr:hover { background-color: rgba(0,0,0,0.02); }
-
-/* --- Status e Badges --- */
-[class^="status-"] {
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
+label {
     font-weight: bold;
-    display: inline-block;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
 }
 
-.status-ok { background: #d4edda; color: #155724; }
-.status-baixo { background: #fff3cd; color: #856404; }
-.status-esgotado { background: #f8d7da; color: #721c24; }
+input, select, textarea {
+    padding: 8px;
+    border: 1px solid var(--borda);
+    font-size: 1rem;
+    background-color: var(--branco);
+    border-radius: 4px; /* Inputs sutilmente arredondados */
+}
 
-/* --- Dashboard Grid --- */
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--azul-principal);
+}
+
+/* Botões com Bordas Arredondadas (Sem animações) */
+button, .btn-primary, .btn-secondary, .btn-logout, .btn-action {
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 6px; /* <--- Bordas arredondadas em todos os botões */
+}
+
+.btn-primary {
+    background-color: var(--azul-principal);
+    color: var(--branco);
+}
+
+.btn-primary:hover {
+    background-color: var(--azul-escuro);
+}
+
+.btn-secondary {
+    background-color: var(--borda);
+    color: var(--texto);
+}
+
+.btn-secondary:hover {
+    background-color: #aaaaaa;
+}
+
+/* Botões dentro do cabeçalho azul */
+.main-header .btn-secondary {
+    background-color: var(--branco);
+    color: var(--azul-principal);
+}
+
+.main-header .btn-secondary:hover {
+    background-color: var(--azul-claro);
+}
+
+.btn-logout {
+    background-color: var(--branco);
+    color: var(--azul-principal);
+    border: 1px solid var(--branco);
+}
+
+.btn-logout:hover {
+    background-color: var(--azul-claro);
+}
+
+.form-actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Menu de Ações (Home) */
 .action-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 }
 
 .action-card {
-    background: white;
-    padding: 2rem;
-    border-radius: var(--radius);
-    text-decoration: none;
-    color: inherit;
-    border: 1px solid var(--border);
-    transition: var(--transition);
+    background: var(--branco);
+    padding: 20px;
+    border: 1px solid var(--borda);
     text-align: center;
+    text-decoration: none;
+    color: var(--texto);
+    display: block;
+    border-radius: 6px; /* Cards da home arredondados */
+}
+
+.action-card h3 {
+    color: var(--azul-principal);
+    margin: 10px 0;
 }
 
 .action-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow);
-    border-color: var(--primary-light);
+    border-color: var(--azul-principal);
+    background-color: var(--azul-claro);
 }
 
-.action-card .icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    display: block;
-    color: var(--primary-light);
+.icon {
+    font-size: 2rem;
 }
 
-/* --- Mensagens de Feedback --- */
+/* Tabelas */
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background-color: var(--branco);
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid var(--borda);
+    text-align: left;
+}
+
+th {
+    background-color: var(--azul-principal);
+    color: var(--branco);
+}
+
+tr:nth-child(even) {
+    background-color: var(--azul-claro);
+}
+
+tr:hover {
+    background-color: #d6e6f5;
+}
+
+/* Barra de Busca */
+.search-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.search-bar input {
+    flex: 1;
+    min-width: 200px;
+}
+
+/* Mensagens e Divisores */
+hr {
+    border: 0;
+    border-top: 1px solid var(--borda);
+    margin: 30px 0;
+}
+
 .mensagem {
-    padding: 1rem;
-    border-radius: 6px;
-    margin: 1rem 0;
-    font-weight: 500;
+    padding: 10px;
+    margin-top: 10px;
+    font-weight: bold;
+    border-radius: 4px;
 }
-.mensagem.sucesso { background: #d4edda; color: #155724; border-left: 5px solid #28a745; }
-.mensagem.erro { background: #f8d7da; color: #721c24; border-left: 5px solid #dc3545; }
+
+.erro {
+    background-color: #ffdddd;
+    color: #cc0000;
+    border: 1px solid #cc0000;
+}
